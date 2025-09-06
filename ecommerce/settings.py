@@ -43,6 +43,13 @@ CSRF_TRUSTED_ORIGINS = [
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", "").split(",")
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
+}
 
 # Application definition
 
@@ -62,6 +69,8 @@ INSTALLED_APPS = [
     'orders',
     'accounts',
     'django_browser_reload',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 TAILWIND_APP_NAME = 'theme'
